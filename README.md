@@ -3,7 +3,7 @@
 ## Learning Goals
 
 - Discuss the `String` class
-- Introduce the String Pool and new String objects
+- Introduce the String Pool and new `String` objects
 - Discuss some of the `String` class' methods
 
 ## Introduction
@@ -36,12 +36,12 @@ String cat = "Tom";
 ```
 
 This way used a **string literal** to assign a value to a `String` data type.
-When we assign a string literal to a `String`, what Java does is it looks for
-any other `String` variable assigned to that value in a special place in
-memory called a **string pool**. If it does not find another `String` object in
-the string pool with that value, then it will create the object. But if it
-_does_ find another `String` with that value, Java will return a reference to
-its memory address and not create another object.
+When we assign a string literal to a `String`, Java looks for any other
+`String` that has the same value in a special place in memory called a
+**string pool**. If it does not find another `String` object in the string
+pool with that value, then it will create the object. But if it _does_ find
+another `String` with that value, Java will return a reference to its memory
+address and not create another object.
 
 ![String Pool with Literals](https://curriculum-content.s3.amazonaws.com/java-mod-2/string-manipulation/String-Pool-Literal.png)
 
@@ -82,23 +82,25 @@ To better explain some of these constructors, let's look at each one:
    previous lesson. In this case, `cat3` will be assigned "Tom-Cat" as well.
    Notice that even though `cat2` and `cat3` have the same value, we still
    create a new `String` object since we are explicitly using the `new`
-   keyword.
+   keyword to create a new object in the heap.
 4. The fourth constructor takes in 3 arguments: a character array, an integer
    to represent the offset, and another integer to represent the count. What
    this will do is it will take the character array and convert only part of it
    to a `String` object. The part it will create is defined by the offset and
    the count. The offset is the index of the array we want to start creating the
    `String` object at and the count is how many characters we expect to be in
-   the object. In this case, we start the offset at the 0 index, so 'T', and we
-   are expecting there to be 3 characters in the object. So we count the `char`
-   values and assign `cat4` to "Tom". If the offset had started at 4 instead,
-   then the value of `cat4` would be "Cat" instead of "Tom".
+   the object. In this case, we start the offset at index 0, so 'T', and we are
+   expecting there to be 3 characters in the object. So we take the first 3
+   characters from the `charArray` starting at index 0 and convert those into a
+   new `String` object. This will assign `cat4` to "Tom". If the offset had
+   started at 4 instead of 0, then the value of `cat4` would be "Cat" instead of
+   "Tom".
 
 ## `String` methods
 
 The `String` class also contains several useful methods for us to manipulate
-`String` objects as well! We will review the more important methods within the
-rest of this lesson and the next lesson.
+`String` objects as well! We will review the more commonly used methods within
+the rest of this lesson.
 
 ### Length
 
@@ -187,11 +189,11 @@ tomcat
 
 Since Java defines a `String` as a single unit of a sequence of characters, we
 can look at `String` objects as having indexes like we do with character arrays.
-For example, if we look at the `String` "Cat", in Java, the 'C' would be at
-index 0, the 'a' would be at index 1, and the 't' would be at index 2. Knowing
-this will help us manipulate our `String` objects more efficiently. There is
-even a `charAt()` method to help us get a character at a specific index within
-a `String`:
+For example, consider we have a `String` object with the value of "Cat". In
+Java, the 'C' would be at index 0, the 'a' would be at index 1, and the 't'
+would be at index 2. Knowing this will help us manipulate our `String` objects
+more efficiently. There is even a `charAt()` method to help us get a character
+at a specific index within a `String`:
 
 ```java
 public class StringCatExample {
