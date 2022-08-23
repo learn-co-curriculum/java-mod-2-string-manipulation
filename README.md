@@ -268,20 +268,20 @@ Let's look a little closer at these two different `substring()` methods:
 ### Replacing Characters
 
 Sometimes we might want to perform something like a "find and replace" within
-our `String` object. For example, maybe we have a want to replace "Tom" with
-the word "Garfield" in a string of words. Can the `String` class help with this?
+our `String` object. For example, maybe we want to replace "Tom" with the word
+"Garfield" in a string of words. Can the `String` class help with this?
 
 The answer is yes! The `String` class has a method called `replace()` that will
-take two parameters: the sequence of characters we want to replace, and new the
-sequence of characters we'd like to replace it with. The `replace()` method will
+take two parameters: the sequence of characters we want to replace, and the new
+sequence of characters we'd like to replace. The `replace()` method will
 also return a new `String` object with the replaced characters.
 
 ```java
 String string1 = "Tom the cat";
 
-String string2 = original.replace("Tom", "Garfield");
+String string2 = string1.replace("Tom", "Garfield");
 ```
 
-The above code will take the original `String`, `string1` and replace all
+The above code will take the original `String`, `string1`, and replace all
 occurrences of "Tom" with "Garfield". This will return a new `String` with the
 value "Garfield the cat". Note that the original `string1` does not change.
